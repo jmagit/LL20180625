@@ -14,6 +14,7 @@ export class NotificationService {
   public add(msg: string): void {
     if (msg && msg !== '') {
       this.listado.push(msg);
+      this.out.warn(msg);
     } else {
       this.out.error('Falta el parámetro.');
     }
