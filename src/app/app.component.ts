@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Hola Mundo';
 
   constructor(private notify: NotificationService) {
-    notify.add('Entra en la aplicacion.');
-    notify.add(null);
+    // notify.add('Entra en la aplicacion.');
+    // notify.add(null);
   }
 }
