@@ -6,10 +6,12 @@ import { ClientesModule } from './clientes/clientes.module';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { DemosComponent } from './demos/demos.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemosComponent
   ],
   imports: [
     BrowserModule, FormsModule,
