@@ -7,7 +7,7 @@ export class LoggerService {
   private nivel = 5;
 
   constructor(@Optional() @Inject(ERROR_LEBEL) nivel: number) {
-    if (nivel) {
+    if (nivel >= 0) {
       this.nivel = nivel;
     }
   }
