@@ -17,6 +17,7 @@ export class DemosComponent implements OnInit {
   ];
   public idProvincia = 2;
   public resultado = '';
+  public tamanio = 12;
 
   public visible = true;
   public estetica = { importante: true, error: false, remarcado: true };

@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'my-sizer',
-  template: `  <div>
+  template: `
+  <div>
     <button (click)="dec()">-</button><button (click)="inc()">+</button>
     <label [style.font-size.px]="size">FontSize: {{size}}px</label>
   </div>`
