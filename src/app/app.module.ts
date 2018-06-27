@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { DemosComponent } from './demos/demos.component';
 import { HomeComponent } from './home/home.component';
+import { DinamicoComponent } from './dinamico/dinamico.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemosComponent,
-    HomeComponent
+    HomeComponent,
+    DinamicoComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule, FormsModule,

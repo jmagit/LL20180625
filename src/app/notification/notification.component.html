@@ -1,0 +1,8 @@
+<div *ngIf="srv.Listado.length > 0">
+  <ul>
+    <li *ngFor="let item of srv.Listado; let indice=index;">
+      {{item}} <input type="button" value="X" (click)="srv.remove(indice)">
+    </li>
+  </ul>
+  <input type="button" value="Cerra" (click)="srv.clear()">
+</div>
