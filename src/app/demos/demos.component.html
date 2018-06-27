@@ -1,4 +1,4 @@
-<h1>Hola {{Nombre}}</h1>
+<h1>Hola {{Nombre | uppercase}}</h1>
 <p>
   <input type="text" [(ngModel)]="Nombre">
   <input type="button" value="Saluda" (click)="saluda()">
@@ -7,20 +7,21 @@
   <input type="button" value="Cambia" (click)="cambia()">
   <input type="button" value="Notifica" (click)="notify.add('Esto es una demo')">
 </p>
-<p [textContent]="resultado">xxxxx</p>
+<p [innerHTML]="resultado">xxxxx</p>
 <p [hidden]="!visible">Ahora me ves</p>
 <p *ngIf="visible">Ahora existo</p>
 <p [ngClass]="estetica">
   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, dolores asperiores nemo totam molestiae obcaecati atque animi quaerat, maiores tempore numquam magnam ea consectetur illo. Natus placeat saepe illum assumenda?
 </p>
 <p>
-  Calcula: 2 + 2 = {{2 + 2}} = {{calcula(2,2)}}
+  Calcula: 2 + 2 = {{(2 + 2) | percent:'2.2-2'}} =
+    {{calcula(2,2) | currency:'EUR':'symbol':'1.2-2' }}
 </p>
 
 <ul>
-  <li *ngFor="let item of Listado; let ind=index; let fondo=odd;"
+  <li *ngFor="let item of Listado | slice: -5; let ind=index; let fondo=odd;"
   [style.background-color]="fondo ? 'LightBlue' : 'Lavender'">
-  {{item.nombre}} ({{item.id}} en la posición {{ind + 1}})
+  {{item.nombre | titlecase}} ({{item.id}} en la posición {{ind + 1}})
   </li>
 </ul>
 <p>
@@ -33,4 +34,4 @@
   <input type="button" value="Add"
     (click)="add(txtProvincia.value)">
 </p>
-
+{{Listado | json}}
