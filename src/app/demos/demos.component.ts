@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../services/notification.service';
+import { ElipsisPipe } from '../../my-core';
 
 @Component({
   selector: 'app-demos',
@@ -29,6 +30,7 @@ export class DemosComponent implements OnInit {
   }
 
   public saluda() {
+    let pipe: ElipsisPipe = new ElipsisPipe();
     this.resultado = `Hola ${this.nombre}`;
   }
   public despide() {
