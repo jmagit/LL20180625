@@ -7,11 +7,13 @@ import { ClientesModule } from './clientes/clientes.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { DemosComponent } from './demos/demos.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent
+    DemosComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule, FormsModule,
