@@ -10,7 +10,7 @@ import { DemosComponent } from './demos/demos.component';
 import { HomeComponent } from './home/home.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { NotificationComponent } from './notification/notification.component';
-import { PersonasComponent } from './personas/personas.component';
+import { PERSONAS_COMPONENTS } from './personas/personas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { PersonasComponent } from './personas/personas.component';
     HomeComponent,
     DinamicoComponent,
     NotificationComponent,
-    PersonasComponent
+    PERSONAS_COMPONENTS
   ],
   imports: [
     BrowserModule, FormsModule,
