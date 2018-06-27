@@ -1,3 +1,5 @@
 <p>
-  dinamico works!
+  <input type="button" *ngFor="let item of menu; let indice=index;"
+    value="{{item.texto}}" (click)="seleccionar(indice)">
 </p>
+<ng-container *ngComponentOutlet="seleccionado"></ng-container>

@@ -1,4 +1,4 @@
-<div *ngIf="srv.Listado.length > 0">
+<div class="notification" *ngIf="srv.Listado.length > 0">
   <ul>
     <li *ngFor="let item of srv.Listado; let indice=index;">
       {{item}} <input type="button" value="X" (click)="srv.remove(indice)">
