@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PersonasVMService } from './personas.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-personas',
@@ -30,6 +31,7 @@ export class PersonasListComponent implements OnInit {
   public get VM() { return this.vm; }
 
   ngOnInit() {
+    this.vm.list();
   }
 
 }
@@ -45,6 +47,7 @@ export class PersonasAddComponent implements OnInit {
   public get VM() { return this.vm; }
 
   ngOnInit() {
+    this.vm.add();
   }
 
 }
@@ -53,30 +56,54 @@ export class PersonasAddComponent implements OnInit {
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./personas.component.css']
 })
-export class PersonasEditComponent implements OnInit {
+export class PersonasEditComponent implements OnInit, OnDestroy {
+  private obs$: any;
 
-  constructor(private vm: PersonasVMService) { }
+  constructor(private vm: PersonasVMService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
-  public get VM() { return this.vm; }
+    public get VM() { return this.vm; }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+      this.obs$ = this.route.paramMap.subscribe(
+        ruta => {
+        const id = +ruta.params['id']; // (+) converts string 'id' to a number
+        if (id) {
+          this.vm.edit(id);
+        } else {
+          this.router.navigate(['/404.html']);
+        }
+      });
+    }
+    ngOnDestroy() { this.obs$.unsubscribe(); }
 }
 @Component({
   selector: 'app-personas-view',
   templateUrl: './tmpl-view.component.html',
   styleUrls: ['./personas.component.css']
 })
-export class PersonasViewComponent implements OnInit {
+export class PersonasViewComponent implements OnInit, OnDestroy {
+  private obs$: any;
 
-  constructor(private vm: PersonasVMService) { }
+  constructor(private vm: PersonasVMService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
-  public get VM() { return this.vm; }
+    public get VM() { return this.vm; }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+      this.obs$ = this.route.paramMap.subscribe(
+        ruta => {
+          const id = +ruta.params['id']; // (+) converts string 'id' to a number
+        if (id) {
+          this.vm.view(id);
+        } else {
+          this.router.navigate(['/404.html']);
+        }
+      });
+    }
+    ngOnDestroy() { this.obs$.unsubscribe(); }
 }
 
 export const PERSONAS_COMPONENTS = [ PersonasComponent, PersonasListComponent,

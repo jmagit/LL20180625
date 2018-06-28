@@ -4,6 +4,7 @@ import { NotificationService } from '../services/notification.service';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -38,10 +39,12 @@ export class PersonasVMDAOService {
   private elemento: any;
   private idOriginal: any;
   private pk = 'id';
+  private cancelURL = '/personas';
 
   constructor(private out: LoggerService,
     private notify: NotificationService,
-    private dao: PersonasDAOService) { }
+    private dao: PersonasDAOService,
+    private router: Router) { }
 
   public get Modo() { return this.modo; }
   public get Listado() { return this.listado; }
@@ -95,7 +98,8 @@ export class PersonasVMDAOService {
   public cancel() {
     this.elemento = null;
     this.idOriginal = null;
-    this.list();
+    // this.list();
+    this.router.navigateByUrl(this.cancelURL);
   }
 
   public send() {
