@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  ERROR_LEBEL: 1
+  ERROR_LEBEL: 1,
+  URL_WS: '/api/'
 };

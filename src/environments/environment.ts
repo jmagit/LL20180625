@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  ERROR_LEBEL: 5
+  ERROR_LEBEL: 5,
+  URL_WS: 'http://localhost:4321/ws/'
 };
 
 /*
